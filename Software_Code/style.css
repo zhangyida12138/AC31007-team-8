@@ -1,0 +1,46 @@
+body {
+  background-color: #f1f6f9 !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+main{
+position: relative;
+
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+
+#loginCol {
+  border-style: solid;
+  border-color: #394867 !important;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  resize: both;
+  overflow: auto;
+  background-color: #9ba4b4 !important;
+}
+
+.questionArea {
+  border-style: solid;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  overflow: auto;
+  background-color: #9ba4b4 !important;
+  border-color: #394867 !important;
+}
