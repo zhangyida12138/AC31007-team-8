@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <?php
 //Starts the session that's being used
   session_start();
@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>QuestionaireLogicTest</title>
-
+    <script src="jquery-3.5.1.js"></script>
     <style type="text/css">
         body {
             font-family: sans-serif;
@@ -78,17 +78,72 @@
         }
 
         .answer-text {
-            resize:vertical;
-
+            resize: vertical;
         }
     </style>
 </head>
 
 <body>
-    <div id="app"></div>
 
-    <input type="button" value="Add another text input" onClick="addInput('app');"><br />
-    <p>test</p>
+    <div>
+        <form id="questionnaire">
+            <h1 class="app-title">Questionnaire</h1>
+
+          
+            <div id="newElementId">New inputbox goes here:</div>
+
+            <div id="dynamicCheck">
+                <input type="button" value="Create Element" onclick="createNewElement();" />
+            </div>
+
+            <button onclick="addProduct()" id="addProduct">Add Product</button>
+
+            <div id="someContainer"></div>
+
+
+            
+        </form>
+    </div>
+
+
+
+    <script type="text/JavaScript">
+            function createNewElement() {
+        // First create a DIV element.
+        var txtNewInputBox = document.createElement('div');
+
+        // Then add the content (a new input box) of the element.
+                txtNewInputBox.innerHTML = "<div class='card'><label  class='title-question'><div  contenteditable= 'true'>question</div></label><textarea class=answer-text rows= '5' cols = '80' placeholder = Participants answer here></textarea></div>";
+
+            // Finally put it where it is supposed to appear.
+            document.getElementById("newElementId").appendChild(txtNewInputBox);
+        }
+
+    </script>
+
+    <script>
+        var i = 1;
+function(addProduct) {
+  $("<div />", {
+      "class": "wrapper",
+      id: "product" + i
+    })
+    .append($("<input />", {
+      type: "text",
+      id: "name" + i
+    }))
+    .append($("<input />", {
+      type: "text",
+      id: "property" + i
+    }))
+    .appendTo("#someContainer");
+  i++;
+});
+
+$("input").live("click", function() {
+  $("span").text("Clicked ID: " + this.id);
+});
+    </script>
 
     <script>
         const petsData = [
@@ -127,61 +182,66 @@
 
         function foods(foods) {
             return `
-                                    <h4>Favorite Foods</h4>
-                                    <ul class="foods-list">
-                                    ${foods.map(food => `<li>${food}</li>`).join("")}
-                                    </ul>
+                                        <h4>Favorite Foods</h4>
+                                        <ul class="foods-list">
+                                        ${foods.map(food => `<li>${food}</li>`).join("")}
+                                        </ul>
 `;
         }
 
         function petTemplate(pet) {
             return `
-                                 <div class="card">
-                                 
-                                 <label class="title-question" >
-                                    <div  contenteditable="true">${pet.title}
-                                    </div>
-                                </label>
-                                <label>
-                                    <strong>Age:</strong>
-                                    <textarea class=answer-text rows= "5" cols = "80" placeholder = ${age(pet.birthYear)}></textarea>
-                                 <p> </p>
+                                     <div class="card">
 
-                                </label>
-                                 </div> 
+                                     <label class="title-question">
+                                        <div  contenteditable="true">${pet.title}
+                                        </div>
+                                    </label>
+                                    <label>
+                                        <strong>Age:</strong>
+                                        
+                                     <p> </p>
+                                    </label>
+                                     </div>
 `;
         }
 
-        function addInput(divName){
-     if (counter == limit)  {
-          alert("You have reached the limit of adding " + counter + " inputs");
-     }
-     else {
-          var newdiv = document.createElement('div');
-          newdiv.innerHTML = "Entry " + (counter + 1) + " <div class='card'> <label class='title-question' ><div  contenteditable='true'>${pet.title}</div></label> <label> <strong>Age:</strong><textarea class=answer-text rows= '5' cols = '80' placeholder = 'answer'></textarea></label></div> ";
-          document.getElementById(divName).appendChild(newdiv);
-          counter++;
-     }
-}
+        
+    }
 
+   
+    document.getElementById("app").innerHTML = `
 
+    // ${petsData.map(petTemplate).join("")}
 
-        document.getElementById("app").innerHTML = `
-                                <h1 class="app-title">Pets (${petsData.length} results)</h1>
-                                
-                                ${petsData.map(petTemplate).join("")}
-
-
-
-                                <input type="button" value="Add another text input" onClick="addInput('app');"><br />
-                                    <div class="card">
-                                         <div class ="">
-                                            <h3 class="title-question" >title</h3>
-                                         </div>
-                                    </div>
-                                
-
-                                <p class="footer">These ${petsData.length} pets were added recently. Check back soon for updates.</p>
-                                `;
+    <p class="footer">These ${petsData.length} pets were added recently. Check back soon for updates.</p>
+    `;
     </script>
 </body>
+
+ <!-- <div id="container"></div>
+  <div>
+    <button id="submit">Create radio button</button>
+  </div>
+
+  <script type="text/javascript">
+    document.getElementById('submit').onclick = function() {
+      var radiobox = document.createElement('input');
+      radiobox.type = 'radio';
+      radiobox.id = 'contact';
+      radiobox.value = 'email';
+
+      var label = document.createElement('label')
+      label.htmlFor = 'contact';
+
+      var description = document.createTextNode('Email');
+      label.appendChild(description);
+
+      var newline = document.createElement('br');
+
+      var container = document.getElementById('container');
+      container.appendChild(radiobox);
+      container.appendChild(label);
+      container.appendChild(newline);-->
+    }
+  </script>
