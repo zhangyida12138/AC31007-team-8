@@ -10,11 +10,29 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="./script.js"></script>
 
-  <title>Login page 1</title>
+  <title>UoD Login</title>
 </head>
 
 <body>
+  <!-- nav bar -->
+  <div class="navbar navbar-site navbar-default" role="navigation">
+      <div class="navbar-main">
+          <div class="container">
+              <div class="row">
+                  <div class="navbar-header">
+                      <div class="logo-group clearfix">
+                          <img src="img_UoDLogo.jpg" alt="logo" style="max-width:70%;">
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- nav bar -->
+
+      <div class="clearfix"></div>
+</div>
   <div class="loginSection">
     <div class="container">
       <div class="row">
@@ -22,26 +40,25 @@
            <!--Something on left maybe-->
         </div>
         <div id="loginCol" class="col-md-4 col-xs-10">
-          <p>UOD Research Login</p>
-          <form action="/action_page.php">
+          <h1>UoD Research Login</h1> <hr>
+          <form action="/login.php" method="POST">
             <div class="form-group">
-              <label for="email">Email address:</label>
-              <input type="email" class="form-control" placeholder="Enter email" id="email">
+              <label for="username">Username:</label>
+              <input type="text" class="form-control" placeholder="Enter Username" id="username" name = "username">
             </div>
             <div class="form-group">
               <label for="pwd">Password:</label>
-              <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+              <input type="password" class="form-control" placeholder="Enter Password" id="pwd" name = "pwd">
             </div>
             <div class="form-group form-check">
               <label class="form-check-label">
                 <input class="form-check-input" type="checkbox"> Remember me test
               </label>
             </div>
-            <button id="submitBtn"type="submit" class="btn btn-primary">Submit</button>
-            <br>
+            <button id="submitBtn"type="submit" class="btn btn-primary">Login</button>
           </form>
           <br>
-        <p>Click here if you have forgotten your password </p>
+        <a><h3>Click here if you have forgotten your password </h3></a>
         </div>
         <div class="col-md-4 col-xs-1">
           <!--Something on right maybe-->
