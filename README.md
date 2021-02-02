@@ -5,7 +5,7 @@ Group Members:
     Jonas Olsson (19001713)
     Tony Wright (170016265)
     Tianpeng Xu (2423569)
-    Wei Zhang (Matriculation Number)
+    Wei Zhang (2432852)
     Craig Methev (180007416)
     Alban Marku (Matriculation Number)
     Zihan Zhou (2399830)
